@@ -6,8 +6,13 @@ var babelify = require('babelify');
 var watchify = require('watchify');
 var notify = require("gulp-notify");
 
+var less = require('gulp-less');
+var minifyCSS  = require('gulp-minify-css');
+
+var cssDir = './css';
 var scriptsDir = './scripts';
 var buildDir = './build';
+var cssFiles = cssDir + '/*.less';
 
 
 function handleErrors() {
@@ -42,7 +47,17 @@ gulp.task('build', function() {
     return buildScript('main.js', false);
 });
 
+gulp.task('css', function() {
+    return gulp.src(cssDir + '/style.less')
+        .pipe(less())
+        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(gulp.dest(buildDir));
+});
+gulp.task('csswatch', function () {
+    gulp.watch(cssFiles, ['css']);
+});
 
-gulp.task('default', ['build'], function() {
+
+gulp.task('default', ['build', 'csswatch'], function() {
     return buildScript('main.js', true);
 });

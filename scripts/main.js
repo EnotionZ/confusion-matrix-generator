@@ -9,10 +9,13 @@ class App extends React.Component {
         super();
 
         this.state = {
-            classes: ['negative', 'positive'],
+            classes: ['negative', 'positive', 'one', 'two', 'three'],
             prediction: [
-                [2, 1],
-                [4, 2]
+                [2, 1, 0, 0, 0],
+                [2, 1, 0, 0, 0],
+                [2, 1, 0, 0, 0],
+                [2, 1, 0, 0, 0],
+                [4, 2, 0, 0, 0]
             ]
         };
     }
