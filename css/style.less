@@ -1,7 +1,7 @@
 
-@cellSize: 38px;
+@cellSize: 45px;
 @labelSize: 40px;
-@classSize: 100px;
+@classSize: 120px;
 
 
 * {
@@ -10,9 +10,22 @@
 	box-sizing: border-box;
 }
 
+html {
+	font-family: serif;
+}
+
+.result {
+	> div {
+		margin-left: @labelSize;
+	}
+	label {
+		width: @classSize;
+		display: inline-block;
+	}
+}
+
 .matrix-view {
 	position: relative;
-	background: #eee;
 
 	label {
 		display: block;
@@ -31,6 +44,7 @@
 		top: @classSize + @labelSize;
 		border-right: 1px solid;
 		border-bottom: 1px solid;
+		text-shadow: 1px 1px 0 #eee;
 	}
 
 	.cell {

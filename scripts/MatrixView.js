@@ -1,8 +1,8 @@
 var React = require('react');
 
-let cellSize = 38;
+let cellSize = 45;
 let labelSize = 40;
-let classSize = 100;
+let classSize = 120;
 
 class MatrixView extends React.Component {
 
@@ -46,7 +46,7 @@ class MatrixView extends React.Component {
                                 style={{
                                     width: cellSize,
                                     height: cellSize,
-                                    backgroundColor: '#aaa'
+                                    backgroundColor: `rgba(70, 70, 70, ${count/this.props.largest})`
                                 }}
                             >{count || ' '}</div>;
                         })}
